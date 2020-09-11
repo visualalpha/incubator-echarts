@@ -38701,7 +38701,7 @@
 
     PieSeriesModel.prototype.getInitialData = function () {
       return createListSimply(this, {
-        coordDimensions: ['value'],
+        coordDimensions: ["value"],
         encodeDefaulter: curry(makeSeriesEncodeForNameBased, this)
       });
     };
@@ -38712,29 +38712,29 @@
       var params = _super.prototype.getDataParams.call(this, dataIndex);
 
       var valueList = [];
-      data.each(data.mapDimension('value'), function (value) {
+      data.each(data.mapDimension("value"), function (value) {
         valueList.push(value);
       });
-      params.percent = getPercentWithPrecision(valueList, dataIndex, data.hostModel.get('percentPrecision'));
-      params.$vars.push('percent');
+      params.percent = getPercentWithPrecision(valueList, dataIndex, data.hostModel.get("percentPrecision"));
+      params.$vars.push("percent");
       return params;
     };
 
     PieSeriesModel.prototype._defaultLabelLine = function (option) {
-      defaultEmphasis(option, 'labelLine', ['show']);
+      defaultEmphasis(option, "labelLine", ["show"]);
       var labelLineNormalOpt = option.labelLine;
       var labelLineEmphasisOpt = option.emphasis.labelLine;
       labelLineNormalOpt.show = labelLineNormalOpt.show && option.label.show;
       labelLineEmphasisOpt.show = labelLineEmphasisOpt.show && option.emphasis.label.show;
     };
 
-    PieSeriesModel.type = 'series.pie';
+    PieSeriesModel.type = "series.pie";
     PieSeriesModel.defaultOption = {
       zlevel: 0,
       z: 2,
       legendHoverLink: true,
-      center: ['50%', '50%'],
-      radius: [0, '75%'],
+      center: ["50%", "50%"],
+      radius: [0, "75%"],
       clockwise: true,
       startAngle: 90,
       minAngle: 0,
@@ -38751,10 +38751,10 @@
       label: {
         rotate: 0,
         show: true,
-        overflow: 'truncate',
-        position: 'outer',
-        alignTo: 'none',
-        edgeDistance: '25%',
+        overflow: "truncate",
+        position: "outer",
+        alignTo: "none",
+        edgeDistance: "25%",
         bleedMargin: 10,
         distanceToLabelLine: 5
       },
@@ -38767,7 +38767,7 @@
         maxSurfaceAngle: 90,
         lineStyle: {
           width: 1,
-          type: 'solid'
+          type: "solid"
         }
       },
       itemStyle: {
@@ -38781,12 +38781,12 @@
         scaleSize: 5
       },
       avoidLabelOverlap: true,
-      animationType: 'expansion',
+      animationType: "expansion",
       animationDuration: 1000,
-      animationTypeUpdate: 'transition',
-      animationEasingUpdate: 'cubicInOut',
+      animationTypeUpdate: "transition",
+      animationEasingUpdate: "cubicInOut",
       animationDurationUpdate: 500,
-      animationEasing: 'cubicInOut'
+      animationEasing: "cubicInOut"
     };
     return PieSeriesModel;
   }(SeriesModel);

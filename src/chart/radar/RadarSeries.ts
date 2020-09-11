@@ -60,7 +60,7 @@ export interface RadarSeriesOption extends SeriesOption<RadarSeriesStateOption>,
     radarIndex?: number
     radarId?: string
 
-    data?: RadarSeriesStateOption[]
+    data?: RadarSeriesDataItemOption[]
 }
 
 class RadarSeriesModel extends SeriesModel<RadarSeriesOption> {
@@ -85,7 +85,7 @@ class RadarSeriesModel extends SeriesModel<RadarSeriesOption> {
         this.legendVisualProvider = new LegendVisualProvider(
             zrUtil.bind(this.getData, this), zrUtil.bind(this.getRawData, this)
         );
-
+        
     }
 
     getInitialData(option: RadarSeriesOption, ecModel: GlobalModel): List {

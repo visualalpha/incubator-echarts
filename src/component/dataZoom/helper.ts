@@ -30,8 +30,8 @@ export interface DataZoomPayloadBatchItem {
     dataZoomId: string;
     start?: number;
     end?: number;
-    startValue?: number;
-    endValue?: number;
+    startValue?: number | string | Date;
+    endValue?: number | string | Date;
 }
 
 export interface DataZoomReferCoordSysInfo {

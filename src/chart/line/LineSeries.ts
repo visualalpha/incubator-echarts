@@ -36,6 +36,7 @@ import {
 import List from '../../data/List';
 import type Cartesian2D from '../../coord/cartesian/Cartesian2D';
 import type Polar from '../../coord/polar/Polar';
+import { MarkLineOption } from '../../component/marker/MarkLineModel';
 
 type LineDataValue = OptionDataValue | OptionDataValue[];
 
@@ -102,6 +103,8 @@ export interface LineSeriesOption extends SeriesOption<LineStateOption, ExtraSta
     // false | 'auto': follow the label interval strategy.
     // true: show all symbols.
     showAllSymbol?: 'auto'
+
+    markLine?: MarkLineOption
 
     data?: (LineDataValue | LineDataItemOption)[]
 }

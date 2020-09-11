@@ -53,6 +53,7 @@ interface PieLabelOption extends Omit<LabelOption, 'rotate' | 'position'> {
     distanceToLabelLine?: number
 
     position?: LabelOption['position'] | 'outer' | 'inner' | 'center'
+    margin?: number | string
 }
 
 interface PieLabelLineOption extends LabelLineOption {

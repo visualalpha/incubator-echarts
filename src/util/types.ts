@@ -510,11 +510,12 @@ export type OptionDataItem =
     // FIXME: In some case (markpoint in geo (geo-map.html)), dataItem is {coord: [...]}
     | OptionDataItemObject<OptionDataValue>;
 // Only for `SOURCE_FORMAT_KEYED_ORIGINAL`
-export type OptionDataItemObject<T> = {
+export interface OptionDataItemObject<T> {
     id?: string | number;
     name?: string;
     value?: T[] | T;
     selected?: boolean;
+  [others: string]: any;
 };
 export interface GraphEdgeItemObject<
     VAL extends OptionDataValue
@@ -530,7 +531,7 @@ export interface GraphEdgeItemObject<
 }
 export type OptionDataValue = string | number | Date;
 
-export type OptionDataValueNumeric = number | '-';
+export type OptionDataValueNumeric = number | '-' | null | undefined;
 export type OptionDataValueCategory = string;
 export type OptionDataValueDate = Date | string | number;
 
@@ -749,7 +750,7 @@ export interface SymbolOptionMixin<T = unknown> {
     /**
      * Size of symbol.
      */
-    symbolSize?: number | number[] | (unknown extends T ? never : SymbolSizeCallback<T>)
+    symbolSize?: number | number[] | (unknown extends T ? (rawValue: any) => number | number[] : SymbolSizeCallback<T>)
 
     symbolRotate?: number | (unknown extends T ? never : SymbolRotateCallback<T>)
 
@@ -852,7 +853,7 @@ export interface TextCommonOption extends ShadowOptionMixin {
     padding?: number | number[]
 
     width?: number | string// Percent
-    height?: number
+    height?: number | string
     textBorderColor?: string
     textBorderWidth?: number
 
@@ -895,7 +896,8 @@ export interface LabelOption extends TextCommonOption {
     valueAnimation?: boolean
 
     // TODO: TYPE not all label support formatter
-    // formatter?: string | ((params: CallbackDataParams) => string)
+    // formatter?: string | ((params: CallbackDataParams) => string);
+    formatter?: string | ((params: any) => string);
 
     rich?: Dictionary<TextCommonOption>
 }

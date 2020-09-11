@@ -25,13 +25,15 @@ import {
     LabelOption,
     SeriesStackOptionMixin,
     StatesOptionMixin,
-    OptionDataItemObject
+  OptionDataItemObject,
+  DimensionDefinitionLoose,
 } from '../../util/types';
 import type Cartesian2D from '../../coord/cartesian/Cartesian2D';
 import type Polar from '../../coord/polar/Polar';
 import { inheritDefaultOption } from '../../util/component';
 import List from '../../data/List';
 import { BrushCommonSelectorsForSeries } from '../../component/brush/selector';
+import { MarkLineOption } from '../../component/marker/MarkLineModel';
 
 
 export interface BarStateOption {
@@ -54,7 +56,7 @@ export interface BarSeriesOption extends BaseBarSeriesOption<BarStateOption>, Ba
     type?: 'bar'
 
     coordinateSystem?: 'cartesian2d' | 'polar'
-
+    
     clip?: boolean
 
     /**
@@ -72,6 +74,10 @@ export interface BarSeriesOption extends BaseBarSeriesOption<BarStateOption>, Ba
     data?: (BarDataItemOption | OptionDataValue | OptionDataValue[])[]
 
     realtimeSort?: boolean
+
+    dimensions?: DimensionDefinitionLoose[]
+
+    markLine?: MarkLineOption
 }
 
 class BarSeriesModel extends BaseBarSeriesModel<BarSeriesOption> {
