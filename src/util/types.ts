@@ -890,7 +890,7 @@ export interface LabelOption extends TextCommonOption {
     // It's minMargin instead of margin is for not breaking the previous code using margin.
     minMargin?: number
 
-    overflow?: TextStyleProps['overflow']
+    overflow?: TextStyleProps['overflow'] | "none"
     silent?: boolean
     precision?: number | 'auto'
     valueAnimation?: boolean
